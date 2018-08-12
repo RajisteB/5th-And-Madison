@@ -1,26 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Anton|Montserrat:300,400,600,700,800,900');
+
 .top-nav {
-  display: flex;
-  padding: 0px 30px;
-  align-items: center;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
-  justify-content: space-between;
+  display: inline-block;
+  text-align: center;
+}
+.fa-gitter {
+  position: absolute;
+  left: 25px;
+  top: 12px;
 }
 .logo {
   padding-top: 10px;
   padding-bottom: 5px;
+  height: 45px;
 }
 .logo img {
   width: 150px;
   height: 70%;
   margin: 0;
 }
-ul {
-  width: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  list-style-type: none;
+.top-nav ul {
+  display: none;
 }
 ul li {
   font-size: 15px;
@@ -31,7 +33,7 @@ ul li {
 }
 .query {
   top: 40px;
-  right: 40px;
+  right: 50px;
   width: 16%;
   display: flex;
   height: 25px;
@@ -67,4 +69,42 @@ input::placeholder {
 .show {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+.sidebar-hide {
+  display: none;
+}
+.sidebar-show {
+  display: block;
+}
+
+@media screen and (min-width: 720px) {
+  .top-nav {
+    display: flex;
+    padding: 0px 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-nav ul {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+  }
+  .query {
+    width: 30%;
+  }
+  .fa-gitter {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .top-nav ul {
+    width: 40%;
+  }
+  .query {
+    width: 15%;
+  }
 }

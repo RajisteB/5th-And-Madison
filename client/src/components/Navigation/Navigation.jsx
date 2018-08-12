@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import './Navigation.css';
 import Logo from '../../Images/MadLogoShadow.png';
+import SideNavBar from './SideNav/SideNavBar.jsx';
+import NavQuery from './NavQuery.jsx';
+import './Navigation.css';
 
 class Navigation extends Component {
  state = {
     queryDrop: false,
+    sidebarShow: false,
     input: ''
   }
 
@@ -12,6 +15,12 @@ class Navigation extends Component {
     this.setState({
       queryDrop: !this.state.queryDrop,
       input: ''
+    });
+  }
+
+  toggleSideBarShow = () => {
+    this.setState({
+      sidebarShow: !this.state.sidebarShow
     });
   }
 
@@ -23,13 +32,23 @@ class Navigation extends Component {
   }
 
   render() {
-    let { queryDrop } = this.state;
+    let { queryDrop, sidebarShow } = this.state;
     let toggle = null;
-    toggle = queryDrop ? "show" : "hide"
+    let toggleSlide = null;
+    toggle = queryDrop ? "show" : "hide";
+    toggleSlide = sidebarShow ? "sidebar-show" : "sidebar-hide"
 
     return (
       <nav className="top-nav">
+        <SideNavBar 
+          slide={toggleSlide} 
+          close={this.toggleSideBarShow}
+        />
         <div className="logo">
+          <i 
+            className="fab fa-gitter fa-rotate-270 fa-lg"
+            onClick={this.toggleSideBarShow}
+          ></i>
           <img src={Logo} alt=""/>
         </div>
         <ul className="links">
@@ -42,17 +61,12 @@ class Navigation extends Component {
             onClick={this.toggleNavInputQuery}
           ></i>
         </ul>
-        <div className={`query ${toggle}`}>
-          <input 
-            type="text" 
-            placeholder="Search..."
-            onChange={this.handleNavInputQuery}
-            value={this.state.input} 
-          />
-          <h4
-            onClick={this.toggleNavInputQuery}
-          >X</h4>
-        </div>
+        <NavQuery 
+          toggle={toggle}
+          handleNavInput={this.handleNavInputQuery}
+          input={this.state.input}
+          toggleNavInput={this.toggleNavInputQuery}
+        />
       </nav>
     );
   }

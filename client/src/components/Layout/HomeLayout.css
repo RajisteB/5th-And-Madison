@@ -1,0 +1,239 @@
+.home-layout-grid {
+  width: 90%;
+  height: 90vh;
+  margin: 0 auto;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-layout-grid #slogan {
+  display: none;
+}
+.women {
+  background-image: url('../../Images/LeftTri.png');
+}
+.men {
+  background-image: url('../../Images/RightTri.png');
+}
+.women, .men {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.men-shop-btn, .women-shop-btn {
+  width: 150px;
+  padding: 8px;
+  border: none;
+  border-radius: 5%;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 
+  0 3px 14px 2px rgba(0, 0, 0, .12), 
+  0 5px 5px -3px rgba(0, 0, 0, .2);
+  font-family: 'Anton', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-top: 50px;
+}
+.women img {
+  height: 400px;
+  width: 700px;
+  margin-right: 0px;
+}
+.women .home-image-w {
+  position: absolute;
+  height: 42%;
+  width: 25%;
+  opacity: 0.92;
+}
+.women .women-shop-btn {
+  z-index: 10;
+  background: black;
+  position: absolute;
+  left: 25px;
+  background: #CC5C33;
+  color: #fff;
+}
+.men img {
+  height: 500px;
+  width: 800px;
+  margin-left: 30px;
+}
+.men .home-image-m {
+  position: absolute;
+  height: 42%;
+  width: 25%;
+  opacity: 0.9;
+}
+.men .men-shop-btn {
+  z-index: 10;
+  background: black;
+  position: absolute;
+  right: 22px;
+  background: #09686D;
+  color: #fff;
+}
+
+@media screen and (min-width: 400px ) {
+  .women img {
+    width: 900px;
+    height: 600px;
+  }
+  .men img {
+    width: 1200px;
+    height: 700px;
+  }
+  .home-layout-grid #slogan {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 700px ) {
+  .home-layout-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .women img {
+    height: 800px;
+    width: 1200px;
+    margin-right: 60px;
+  }
+  .women .home-image-w {
+    position: absolute;
+    height: 45%;
+    width: 14%;
+    left: 50px;
+    opacity: 0.9;
+  }
+  .men img {
+    height: 900px;
+    width: 1200px;
+    margin-left: 130px;
+  }
+  .men .home-image-m {
+    position: absolute;
+    height: 45%;
+    width: 14%;
+    right: 50px;
+    opacity: 0.9;
+  }
+  .home-layout-grid #slogan {
+    display: block;
+    position: absolute;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    font-size: 4rem;
+    margin-left: 40px;
+    top: 60px;
+    color: #22211d;
+    opacity: 0.9;
+    text-shadow: 6px 12px rgba(17, 157, 164, 0.4);
+    letter-spacing: 3px;
+  }
+}
+
+@media screen and (min-width: 1000px ) {
+  .women .home-image-w {
+    left: 100px;
+  }
+  .men .home-image-m {
+    right: 100px;
+  }
+  .women img {
+    width: 1400px;
+    height: 1000px;
+  }
+  .men img {
+    width: 1600px;
+    height: 1000px;
+  }
+  .men .men-shop-btn {
+    right: 150px;
+    font-size: 1.4rem;
+  }
+  .women .women-shop-btn {
+    left: 180px;
+    font-size: 1.4rem;
+  }
+  .home-layout-grid #slogan {
+    display: block;
+    position: absolute;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    font-size: 5rem;
+    margin-left: 40px;
+    top: 100px;
+    color: #22211d;
+    opacity: 0.9;
+    text-shadow: 6px 12px rgba(17, 157, 164, 0.4);
+    letter-spacing: 3px;
+  }
+}
+
+@media screen and (min-width: 1200px ) {
+  .home-layout-grid #slogan {
+    display: block;
+    position: absolute;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    font-size: 5rem;
+    margin-left: 50px;
+    top: 40px;
+    color: #22211d;
+    opacity: 0.9;
+    text-shadow: 6px 12px rgba(17, 157, 164, 0.4);
+    letter-spacing: 3px;
+  }
+  .women .home-image-w {
+    position: absolute;
+    height: 50%;
+    width: 10%;
+    left: 150px;
+    opacity: 0.9;
+  }
+  .men .home-image-m {
+    position: absolute;
+    height: 50%;
+    width: 10%;
+    opacity: 0.85;
+    right: 150px;
+  }
+}
+
+@media screen and (min-width: 1500px ) {
+  .home-layout-grid #slogan {
+    display: block;
+    position: absolute;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    font-size: 6rem;
+    margin-left: 30px;
+    top: 140px;
+    color: #22211d;
+    opacity: 0.9;
+    text-shadow: 6px 12px rgba(17, 157, 164, 0.4);
+    letter-spacing: 3px;
+  }
+  .women .home-image-w {
+    position: absolute;
+    height: 45%;
+    width: 10%;
+    left: 250px;
+    opacity: 0.9;
+  }
+  .men .home-image-m {
+    position: absolute;
+    height: 45%;
+    width: 10%;
+    opacity: 0.85;
+    right: 250px;
+  }
+}
