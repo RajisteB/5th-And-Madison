@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      brand: 'armani'
+      brand: 'adidas'
     }
   }
   
@@ -28,7 +28,7 @@ class App extends Component {
           <HomePage />
         </HomeLayout> */}
         <ProductPage 
-          gender={"men"} 
+          gender={"women"} 
           brand={this.state.brand} 
           handleBrandChange={this.handleBrandChange}
         />

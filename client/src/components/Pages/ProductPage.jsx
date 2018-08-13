@@ -106,7 +106,7 @@ class ProductPage extends Component {
         brand={this.props.handleBrandChange}
         gender={this.props.gender}
       >
-        <ProductCard items={this.state.searchItems}/>
+        <ProductCard items={this.state.searchItems} company={this.props.brand}/>
       </ProductLayout>
       </div>
     );
