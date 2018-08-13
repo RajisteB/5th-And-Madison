@@ -4,11 +4,12 @@ import ProductLayout from '../Layout/ProductLayout.jsx';
 import ProductCard from '../Cards/ProductCard.jsx';
 
 class ProductPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchItems: [],
       pageNumber: 0,
+      pageCount: null,
       prevDisabled: false,
       nextDisabled: false,
     }
@@ -16,19 +17,20 @@ class ProductPage extends Component {
 
 
   getItems = (page) => {
-    axios.get(`https://api.shop.com/sites/v1/search/term/women%20margiela--+0?br=&i=${page}&t=0&apiKey=l7xx98822f77bdd045e1a07135f73c6613de`)
+    axios.get(`https://api.shop.com/sites/v1/search/term/${this.props.gender}%20${this.props.brand}--+0?br=&i=${page}&t=0&apiKey=l7xx98822f77bdd045e1a07135f73c6613de`)
     .then(res => {
       console.log(res.data);
       this.setState({
-        searchItems: res.data.searchItems
+        searchItems: res.data.searchItems,
+        pageCount: res.data.pageCount
       })
     });
   }
 
   handleNextPage = async() => {
-    if ( this.state.pageNumber >= 50) {
-      await this.setState({
-        pageNumber: 50,
+    if ( this.state.pageNumber >= this.state.pageCount - 1) {
+        this.setState({
+        pageNumber: this.state.pageCount,
         nextDisabled: true,
         prevDisabled: false
       })
@@ -68,6 +70,16 @@ class ProductPage extends Component {
     this.handlePreviousPage();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+      if (prevProps.brand !== this.props.brand) {
+        console.log('[ProductPage.jsx] In ComponentDidUpdate - true');
+        this.getItems(this.state.pageNumber);
+        this.handlePreviousPage();
+      } else {
+        return;
+      }
+  } 
+
   render() {
     let { prevDisabled, nextDisabled } = this.state;
     let buttonDisabledPrevClass = null;
@@ -75,9 +87,6 @@ class ProductPage extends Component {
 
     buttonDisabledPrevClass = prevDisabled ? "disabled" : null;
     buttonDisabledNextClass = nextDisabled ? "disabled" : null;
-
-    
-    console.log(this.state.pageNumber);
 
     return (
       <div className="App">
@@ -93,7 +102,10 @@ class ProductPage extends Component {
       >
         Next Page
       </button>
-      <ProductLayout>
+      <ProductLayout 
+        brand={this.props.handleBrandChange}
+        gender={this.props.gender}
+      >
         <ProductCard items={this.state.searchItems}/>
       </ProductLayout>
       </div>
