@@ -57,10 +57,25 @@
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
 }
-
-#active {
-  opacity: 1;
+.to-top-of-window {
+  position: fixed;
+  left: 40px;
+  bottom: 30px;
+  cursor: pointer;
 }
-#blah {
-  color: red;
+.to-top-of-window i,
+.to-top-of-window h5 {
+  margin: 0;
+  padding: 0;
+}
+.to-top-of-window h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+#show { 
+  display: block;
+}
+#hide { 
+  display: none; 
 }

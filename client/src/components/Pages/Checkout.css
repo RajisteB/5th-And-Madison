@@ -1,0 +1,22 @@
+.checkout-container {
+  width: 90%;
+  height: 80vh;
+  background: blue;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.product-table, .checkout-forms {
+  flex: 1;
+  padding: 10px;
+}
+.product-table {
+  
+}
+.checkout-forms {
+
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom'; 
 import LightSplatter from '../../Images/WmnsSplatter.png';
 import DarkSplatter from '../../Images/MnsSplatter.png';
 import Hero_Yellow from '../../Images/Yellow-Sweats.png';
@@ -12,15 +13,19 @@ const HomePage = () => {
       <div className="women">
         <img src={LightSplatter} alt=""/>
         <img className="home-image-w" src={Hero_Yellow} alt=""/>
-        <button className="women-shop-btn">SHOP WOMEN</button>
+        <Link to="/women">
+          <button className="women-shop-btn">SHOP WOMEN</button>
+        </Link>
       </div>
       <div className="men">
         <img src={DarkSplatter} alt=""/>
         <img src={Hero_Green} className="home-image-m" alt=""/>
-        <button className="men-shop-btn">SHOP MEN</button>
+        <Link to="/men">
+          <button className="men-shop-btn">SHOP MEN</button>
+        </Link>
       </div>
     </HomeLayout>
   );
 }
 
-export default HomePage;
+export default withRouter(HomePage);

@@ -3,6 +3,7 @@ import Logo from '../../Images/MadLogoShadow.png';
 import SideNavBar from './SideNav/SideNavBar.jsx';
 import NavQuery from './NavQuery.jsx';
 import './Navigation.css';
+import { Link, withRouter } from 'react-router-dom';
 
 class Navigation extends Component {
  state = {
@@ -49,7 +50,9 @@ class Navigation extends Component {
             className="fab fa-gitter fa-rotate-270 fa-lg"
             onClick={this.toggleSideBarShow}
           ></i>
-          <img src={Logo} alt=""/>
+          <Link to={"/"}>
+            <img src={Logo} alt=""/>
+          </Link>
         </div>
         <ul className="links">
           <li>About</li>
@@ -72,4 +75,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation; 
+export default withRouter(Navigation); 

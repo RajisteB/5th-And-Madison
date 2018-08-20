@@ -44,6 +44,7 @@ class ProductPage extends Component {
       });
       await this.getItems(this.state.pageNumber);
     }
+    await this.props.trackPageNum(this.state.pageNumber);
   }
 
   handlePreviousPage = async() => {
@@ -63,11 +64,13 @@ class ProductPage extends Component {
       });
       await this.getItems(this.state.pageNumber);
     }
+    await this.props.trackPageNum(this.state.pageNumber);
   }
 
   componentDidMount() {
     this.getItems(this.state.pageNumber);
     this.handlePreviousPage();
+    this.props.setCategory(this.props.gender);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -80,6 +83,7 @@ class ProductPage extends Component {
       }
   } 
 
+
   render() {
     let { prevDisabled, nextDisabled } = this.state;
     let buttonDisabledPrevClass = null;
@@ -90,24 +94,24 @@ class ProductPage extends Component {
 
     return (
       <div className="App">
-      <button 
-        onClick={ prevDisabled ? null : this.handlePreviousPage}
-        className={buttonDisabledPrevClass}
-      >
-        Prev Page
-      </button>
-      <button 
-        onClick={nextDisabled ? null : this.handleNextPage} 
-        className={buttonDisabledNextClass}
-      >
-        Next Page
-      </button>
-      <ProductLayout 
-        brand={this.props.handleBrandChange}
-        gender={this.props.gender}
-      >
-        <ProductCard items={this.state.searchItems} company={this.props.brand}/>
-      </ProductLayout>
+        <button 
+          onClick={ prevDisabled ? null : this.handlePreviousPage}
+          className={buttonDisabledPrevClass}
+        >
+          Prev Page
+        </button>
+        <button 
+          onClick={nextDisabled ? null : this.handleNextPage} 
+          className={buttonDisabledNextClass}
+        >
+          Next Page
+        </button>
+        <ProductLayout 
+          brand={this.props.handleBrandChange}
+          gender={this.props.gender}
+        >
+          <ProductCard items={this.state.searchItems} company={this.props.brand}/>
+        </ProductLayout>
       </div>
     );
   }
